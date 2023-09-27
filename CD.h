@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <stdexcept>
+#include <filesystem>
 
 class CD : public List<Song*> {
    std::string Name;
@@ -15,6 +16,8 @@ class CD : public List<Song*> {
       std::string line;
       std::ifstream file(filePath);
       if (file.is_open()) {
+	 std::filesystem::path p(filePath);
+	 Name = p.stem();
 	 while (std::getline(file, line)) {
 	    Song* temp = new Song(line, Name);
 	    this->Add(temp);

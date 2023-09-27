@@ -16,3 +16,7 @@ int CD::IndexOf(Song* cancion) {
       return index;
    }
 }
+
+std::string CD::GetName() {
+   return Name;
+}
