@@ -25,3 +25,12 @@ void List<T>::RemoveAt(int index) {
    delete placeholder->Next;
    placeholder->Next = p2;
 }
+
+template <typename T>
+T List<T>::GetAt(int index) {
+   Node* placeholder = Head;
+   for (int i = 0; i <= index; ++i) {
+      placeholder = placeholder->Next;
+   }
+   return placeholder->Data;
+}
