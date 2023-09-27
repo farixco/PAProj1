@@ -1,6 +1,6 @@
 #include "List.h"
-template <typename T>
 
+template <typename T>
 void List<T>::Add(T item) {
    if (Head == nullptr) {
       Head = new Node*;
@@ -13,4 +13,15 @@ void List<T>::Add(T item) {
       Tail->Next = Placeholder;
       Tail = Placeholder;
    }
+}
+
+template <typename T>
+void List<T>::RemoveAt(int index) {
+   Node* placeholder = Head;
+   for (int i = 0; i < index; ++i) {
+      placeholder = placeholder->Next;
+   }
+   Node* p2 = placeholder->Next->Next;
+   delete placeholder->Next;
+   placeholder->Next = p2;
 }
