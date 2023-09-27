@@ -8,7 +8,7 @@
 class CD : public List<Song*> {
    std::string Name;
   public:
-   int IndexOf(Song cancion);
+   int IndexOf(Song* cancion);
    std::string GetName();
    CD(std::string filePath) {
       // código para leer el archivo, más que todo revisión de errores y utilizar Add() para agregarlos a la lista
