@@ -1,4 +1,5 @@
 #include "List.h"
+#include <stdexcept>
 
 template <typename T>
 void List<T>::Add(T item) {
@@ -6,42 +7,57 @@ void List<T>::Add(T item) {
       Head = new Node*;
       Head->Data = item;
       Tail = Head;
+      ++Length;
    } else {
       Node* Placeholder = new Node*;
       Placeholder->Data = item;
       Placeholder->Next = nullptr;
       Tail->Next = Placeholder;
       Tail = Placeholder;
+      ++Length;
    }
 }
 
 template <typename T>
 void List<T>::RemoveAt(int index) {
-   Node* placeholder = Head;
-   for (int i = 0; i < index; ++i) {
-      placeholder = placeholder->Next;
+   if (index < Length && index >= 0) {
+      Node* placeholder = Head;
+      for (int i = 0; i < index; ++i) {
+	 placeholder = placeholder->Next;
+      }
+      Node* p2 = placeholder->Next->Next;
+      delete placeholder->Next;
+      placeholder->Next = p2;
+      --Length;
+   } else {
+      throw std::out_of_range("Índice no existe.");
    }
-   Node* p2 = placeholder->Next->Next;
-   delete placeholder->Next;
-   placeholder->Next = p2;
 }
 
 template <typename T>
 T List<T>::GetAt(int index) {
-   Node* placeholder = Head;
-   for (int i = 0; i <= index; ++i) {
-      placeholder = placeholder->Next;
+   if (index < Length && index >= 0) {
+      Node* placeholder = Head;
+      for (int i = 0; i <= index; ++i) {
+	 placeholder = placeholder->Next;
+      }
+      return placeholder->Data;
+   } else {
+      throw std::out_of_range("Índice no existe.");
    }
-   return placeholder->Data;
 }
 
 template <typename T>
 void List<T>::SetAt(int index, T item) {
-   Node* placeholder = Head;
-   for (int i = 0; i <= index; ++i) {
-      placeholder = placeholder->Next;
+   if (index < Length && index >= 0) {
+      Node* placeholder = Head;
+      for (int i = 0; i <= index; ++i) {
+	 placeholder = placeholder->Next;
+      }
+      placeholder->Data = item;
+   } else {
+      throw std::out_of_range("Índice no existe.");
    }
-   placeholder->Data = item;
 }
 
 template <typename T>
@@ -57,4 +73,9 @@ int List<T>::IndexOf(T item) {
    } else {
       return -1;
    }
+}
+
+template <typename T>
+int List<T>::Count() {
+   return Length;
 }
