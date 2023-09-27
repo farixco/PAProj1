@@ -1,11 +1,13 @@
 #pragma once
 template <typename T>
 class List {
-  protected:
    struct Node {
-      Node* next = nullptr;
-      T data;
+      Node* Next = nullptr;
+      T Data;
    };
+  protected:
+   Node* Head = nullptr;
+   Node* Tail = nullptr;
   public:
    void Add(T item);
    void RemoveAt(int index);
