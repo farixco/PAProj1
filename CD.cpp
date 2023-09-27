@@ -20,3 +20,15 @@ int CD::IndexOf(Song* cancion) {
 std::string CD::GetName() {
    return Name;
 }
+
+bool CD::Duplicates() {
+   Node* placeholder = Head;
+   for (int i = 0; i < this->Count() - 1; ++i) {
+      for (int j = i + 1; j < this->Count(); ++i) {
+	 if (this->GetAt(i) == this->GetAt(j)) {
+	    return true;
+	 }
+      }
+   }
+   return false;
+}
