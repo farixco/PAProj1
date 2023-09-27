@@ -34,3 +34,12 @@ T List<T>::GetAt(int index) {
    }
    return placeholder->Data;
 }
+
+template <typename T>
+void List<T>::SetAt(int index, T item) {
+   Node* placeholder = Head;
+   for (int i = 0; i <= index; ++i) {
+      placeholder = placeholder->Next;
+   }
+   placeholder->Data = item;
+}
