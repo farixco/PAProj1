@@ -22,7 +22,6 @@ std::string CD::GetName() {
 }
 
 bool CD::Duplicates() {
-   Node* placeholder = Head;
    for (int i = 0; i < this->Count() - 1; ++i) {
       for (int j = i + 1; j < this->Count(); ++i) {
 	 if (this->GetAt(i) == this->GetAt(j)) {
