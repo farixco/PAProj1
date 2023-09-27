@@ -43,3 +43,18 @@ void List<T>::SetAt(int index, T item) {
    }
    placeholder->Data = item;
 }
+
+template <typename T>
+int List<T>::IndexOf(T item) {
+   Node* placeholder = Head;
+   int reps = 0;
+   while (placeholder->Data != item || placeholder->Next != nullptr) {
+      placeholder = placeholder->Next;
+      ++reps;
+   }
+   if (placeholder->Data == item) {
+      return reps;
+   } else {
+      return -1;
+   }
+}
