@@ -34,6 +34,9 @@ class Song {
 	       }
 	    }
 	 }
+	 if (timesFound < 2) {
+	    throw std::invalid_argument("Declaración de canción incompleta.");
+	 }
       }
    }
 };
