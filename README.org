@@ -3,4 +3,4 @@
 * Sobrevista de la Arquitectura
 ** Entrada
 El programa tiene dos maneras de iniciar: sin argumento de invocación o con argumento de invocación. El argumento de invocación es la dirección de un directorio que contiene los archivos .txt. En caso de que no hubiera argumento, se le pregunta al usuario por el directorio manualmente.
-En cualquier caso, se recae en una pantalla principal y el control es por medio de números para elegir la pantalla que se desea. Se pueden realizar acciones desde cualquier pantalla, cada una teniendo keybinds diferentes. 
+En cualquier caso, se recae en una pantalla principal y el control es por medio de números para elegir la pantalla que se desea. Se pueden realizar acciones desde cualquier pantalla, cada una teniendo keybinds diferentes.
