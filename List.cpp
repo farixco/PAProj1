@@ -21,13 +21,17 @@ void List<T>::Add(T item) {
 template <typename T>
 void List<T>::RemoveAt(int index) {
    if (index < Length && index >= 0) {
-      Node* placeholder = Head;
-      for (int i = 0; i < index; ++i) {
-	 placeholder = placeholder->Next;
+      if (index > 0) {
+	 Node* placeholder = Head;
+	 for (int i = 0; i < index - 1; ++i) {
+	    placeholder = placeholder->Next;
+	 }
+	 Node* p2 = placeholder->Next->Next;
+	 delete placeholder->Next;
+	 placeholder->Next = p2;
+      } else {
+	 Head = Head->Next;
       }
-      Node* p2 = placeholder->Next->Next;
-      delete placeholder->Next;
-      placeholder->Next = p2;
       --Length;
    } else {
       throw std::out_of_range("Índice no existe.");
