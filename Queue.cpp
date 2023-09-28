@@ -5,7 +5,7 @@
 
 template <typename T>
 void Queue<T>::Enqueue(T item) {
-   Add(item);
+   this->Add(item);
 }
 
 template <typename T>
