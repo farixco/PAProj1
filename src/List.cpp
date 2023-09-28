@@ -1,4 +1,4 @@
-#include "List.h"
+#include "../include/List.h"
 #include <stdexcept>
 
 template <typename T>

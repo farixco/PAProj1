@@ -1,6 +1,6 @@
-#include "Queue.h"
+#include "../include/Queue.h"
 #include <stdexcept>
-#include "Song.h"
+#include "../include/Song.h"
 #include <algorithm>
 
 template <typename T>
