@@ -4,12 +4,12 @@
 template <typename T>
 void List<T>::Add(T item) {
    if (Head == nullptr) {
-      Head = new Node*;
+      Head = new Node;
       Head->Data = item;
       Tail = Head;
       ++Length;
    } else {
-      Node* Placeholder = new Node*;
+      Node* Placeholder = new Node;
       Placeholder->Data = item;
       Placeholder->Next = nullptr;
       Tail->Next = Placeholder;
@@ -42,7 +42,7 @@ template <typename T>
 T List<T>::GetAt(int index) {
    if (index < Length && index >= 0) {
       Node* placeholder = Head;
-      for (int i = 0; i <= index; ++i) {
+      for (int i = 0; i < index; ++i) {
 	 placeholder = placeholder->Next;
       }
       return placeholder->Data;
@@ -55,7 +55,7 @@ template <typename T>
 void List<T>::SetAt(int index, T item) {
    if (index < Length && index >= 0) {
       Node* placeholder = Head;
-      for (int i = 0; i <= index; ++i) {
+      for (int i = 0; i < index; ++i) {
 	 placeholder = placeholder->Next;
       }
       placeholder->Data = item;
@@ -67,19 +67,23 @@ void List<T>::SetAt(int index, T item) {
 template <typename T>
 int List<T>::IndexOf(T item) {
    Node* placeholder = Head;
-   int reps = 0;
-   while (placeholder->Data != item || placeholder->Next != nullptr) {
-      placeholder = placeholder->Next;
-      ++reps;
+   for (int i = 0; i < Length; ++i) {
+      if (placeholder->Data == item) {
+	 return i;
+      } else {
+	 placeholder = placeholder->Next;
+      }
    }
-   if (placeholder->Data == item) {
-      return reps;
-   } else {
-      return -1;
-   }
+   return -1;
 }
 
 template <typename T>
 int List<T>::Count() {
    return Length;
 }
+
+/* Añadir instancias del template para que el linker no se muera
+ * al intentar compilar y que no genere las referencias usadas.
+ */
+
+template class List<int>;
