@@ -15,12 +15,14 @@ class CD : public List<Song*> {
    CD(std::string filePath) {
       std::string line;
       std::ifstream file(filePath);
+      int readline = 0;
       if (file.is_open()) {
 	 std::filesystem::path p(filePath);
 	 Name = p.stem();
 	 while (std::getline(file, line)) {
 	    Song* temp = new Song(line, Name);
 	    this->Add(temp);
+	    readline++;
 	 }
 	 file.close();
       } else {
@@ -28,6 +30,8 @@ class CD : public List<Song*> {
       }
       if (Duplicates()) {
 	 throw std::invalid_argument("Archivo contiene líneas duplicadas.");
+      } else if (readline == 0) {
+	 throw std::invalid_argument("Archivo vacío.");
       }
    }
 };

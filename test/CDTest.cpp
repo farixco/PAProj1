@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main() {
-   std::string path = "../ArchivosDePrueba/ejemplo.txt";
+   std::string path = "../ArchivosDePrueba/empty.txt";
    std::cout << "T0: Constructor y Duplicados" << std::endl;
    CD* cede;
    try {
