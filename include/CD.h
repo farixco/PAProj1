@@ -5,7 +5,7 @@
 #include <fstream>
 #include <stdexcept>
 #include <filesystem>
-
+    
 class CD : public List<Song*> {
    std::string Name;
    bool Duplicates();

@@ -1,5 +1,5 @@
 #include "../include/CD.h"
- 
+
 int CD::IndexOf(Song* cancion) {
    Node* placeholder = Head;
    int index = 0;

@@ -18,24 +18,23 @@ class Song {
 	 for (int i = 0; i < rawData.length(); ++i) {
 	    if (rawData.substr(i, 2) == "||") {
 	       switch (timesFound) {
-		  case 0: Name = rawData.substr(0, i - 1);
+		  case 0: Name = rawData.substr(0, i);
 		     ++timesFound;
 		     lastFound = i + 2;
 		     break;
 		  case 1: Artist = rawData.substr(lastFound, i - lastFound);
 		     ++timesFound;
-		     lastFound = i + 2;
-		     break;
-		  case 2: Duration = rawData.substr(lastFound);
-		     ++timesFound;
+		     Duration = rawData.substr(i + 2);
 		     break;
 		  default: throw std::invalid_argument("Declaración de canción inválida. (2)");
 		     break;
 	       }
 	    }
 	 }
-	 if (timesFound < 2) {
+	 if (timesFound != 2) {
 	    throw std::invalid_argument("Declaración de canción incompleta.");
+	 } else if (Duration.find(":") == std::string::npos) {
+	    throw std::invalid_argument("Declaración de canción inválida. (3)");
 	 }
       }
    }
