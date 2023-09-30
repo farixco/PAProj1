@@ -21,14 +21,12 @@ class CD : public List<Song*> {
 	 while (std::getline(file, line)) {
 	    Song* temp = new Song(line, Name);
 	    this->Add(temp);
-	    delete temp;
 	 }
 	 file.close();
       } else {
 	 throw std::invalid_argument("Archivo no encontrado o no es de texto.");
       }
       if (Duplicates()) {
-	 delete this;
 	 throw std::invalid_argument("Archivo contiene líneas duplicadas.");
       }
    }

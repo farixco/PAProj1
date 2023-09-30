@@ -2,19 +2,15 @@
 
 int CD::IndexOf(Song* cancion) {
    Node* placeholder = Head;
-   int index = 0;
-   while (placeholder->Data->Name != cancion->Name &&
-	  placeholder->Data->Artist != cancion->Artist &&
-	  placeholder->Data->Duration != cancion->Duration &&
-	  placeholder != Tail) {
+   for (int i = 0; i < Count(); ++i) {
+      if (placeholder->Data->Name == cancion->Name &&
+	 placeholder->Data->Artist == cancion->Artist &&
+	  placeholder->Data->Duration == cancion->Duration) {
+	 return i;
+      }
       placeholder = placeholder->Next;
-      ++index;
    }
-   if (placeholder == Tail && (placeholder->Data->Name != cancion ->Name && placeholder->Data->Artist != cancion->Artist && placeholder->Data->Duration != cancion->Duration)) {
-      return -1;
-   } else {
-      return index;
-   }
+   return -1;
 }
 
 std::string CD::GetName() {
@@ -23,8 +19,10 @@ std::string CD::GetName() {
 
 bool CD::Duplicates() {
    for (int i = 0; i < this->Count() - 1; ++i) {
-      for (int j = i + 1; j < this->Count(); ++i) {
-	 if (this->GetAt(i) == this->GetAt(j)) {
+      for (int j = i + 1; j < this->Count(); ++j) {
+	 if (this->GetAt(i)->Name == this->GetAt(j)->Name &&
+	     this->GetAt(i)->Artist == this->GetAt(j)->Artist &&
+	     this->GetAt(i)->Duration == this->GetAt(j)->Duration) {
 	    return true;
 	 }
       }
