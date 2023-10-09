@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 project("Respaldo de CD")
 
-find_package(Curses REQUIRED)
-include_directories(${CURSES_INCLUDE_DIR})
-
 add_compile_options(
        -Wall
        $<$<CONFIG:RELEASE>:-Ofast>
@@ -15,4 +12,3 @@ enable_testing()
 add_subdirectory(test)
 
 add_executable(repcd src/main.cpp src/CD.cpp src/Queue.cpp)
-target_link_libraries(repcd ${CURSES_LIBRARIES})
