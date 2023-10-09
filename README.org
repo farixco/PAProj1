@@ -45,7 +45,6 @@ El programa empieza por pedir al usuario la dirección del directorio donde se t
 ├── include
 │   ├── CD.h
 │   ├── List.h
-│   ├── prog
 │   ├── Queue.h
 │   └── Song.h
 ├── README.org
@@ -64,10 +63,11 @@ El programa empieza por pedir al usuario la dirección del directorio donde se t
 ** Compilación
 Utiliza sistema CMake. Tiene dos opciones: Release y Debug.
 El binario que genera tiene el nombre =repcd=.
+El directorio con archivos de prueba tiene varios archivos con errores. Es intencional, por lo que habría que generar un propio directorio solo con archivos funcionales.
 ** Pruebas
 Tiene cuatro unit tests que funcionan con CTest:
-1. LsT :: Test de la Lista.
-2. SnT :: Test de la Canción (Song).
-3. CDT :: Test del CD.
-4. QuT :: Test de la Cola (Queue).
+- LsT :: Test de la Lista.
+- SnT :: Test de la Canción (Song).
+- CDT :: Test del CD.
+- QuT :: Test de la Cola (Queue).
 Los cuatro son simples unit tests que deben de retornar 0 para asegurar su buen comportamiento ante cualquier cambio.
