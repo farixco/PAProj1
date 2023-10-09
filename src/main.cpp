@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 	    listaCD->Add(tmp);
 	 } catch (std::exception& exc) {
 	    cout << "El archivo: " << archivo << " contiene errores, y no ha podido ser leído. Por favor corregir el error." << endl;
-	    std::cerr << exc.what() << endl;;
+	    std::cerr << exc.what() << endl;
 	    std::exit(1);
 	 }
       }
