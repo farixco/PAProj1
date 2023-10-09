@@ -51,7 +51,6 @@ El programa empieza por pedir al usuario la dirección del directorio donde se t
 ├── src
 │   ├── CD.cpp
 │   ├── main.cpp
-│   ├── main.cpp~
 │   └── Queue.cpp
 ├── test
 │   ├── CDTest.cpp
